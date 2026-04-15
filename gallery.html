@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Gallery - ETERNAL{% endblock %}
+
+{% block content %}
+<!-- Gallery Hero -->
+<section class="gallery-hero">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <h1 class="section-title">Gallery</h1>
+        <p class="section-subtitle">Momen tak terlupakan bersama keluarga ETERNAL</p>
+    </div>
+</section>
+
+<!-- Masonry Grid -->
+<section class="gallery-grid-section">
+    <div class="container">
+        <div class="masonry-grid" id="masonryGrid">
+            {% for image in images %}
+            <div class="gallery-item" 
+                 data-category="{{ image.category }}"
+                 data-index="{{ loop.index0 }}"
+                 style="animation-delay: {{ loop.index0 * 0.05 }}s;">
+                <div class="gallery-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/' + image.src) }}" 
+                         alt="{{ image.title }}"
+                         loading="lazy"
+                         data-full="{{ url_for('static', filename='images/' + image.src) }}"
+                         data-title="{{ image.title }}"
+                         data-date="{{ image.date }}">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>{{ image.title }}</h3>
+                            <span>{{ image.date }}</span>
+                        </div>
+                        <div class="gallery-actions">
+                            <i class="fas fa-search-plus lightbox-trigger"></i>
+                            <i class="fas fa-heart"></i>
+                            <i class="fas fa-share"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-info">
+            <h3 id="lightbox-title"></h3>
+            <span id="lightbox-date"></span>
+            <div class="lightbox-nav">
+                <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

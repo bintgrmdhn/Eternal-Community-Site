@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Leaderboard - ETERNAL{% endblock %}
+
+{% block content %}
+<!-- Leaderboard Header -->
+<section class="leaderboard-hero">
+    <div class="container">
+        <h1 class="section-title">Leaderboard</h1>
+        <p class="section-subtitle">Top 20 Eternal Warriors berdasarkan total points</p>
+        <div class="leaderboard-stats">
+            <div><span id="total-points">147,150</span> Total Points</div>
+            <div><span id="top-player">Rizky Pratama</span> #1 Player</div> 
+        </div>
+    </div>
+</section>
+
+<!-- Leaderboard Table -->
+<section class="leaderboard section">
+    <div class="container">
+        <div class="leaderboard-list">
+            {% for member in top_members %}
+            <div class="leaderboard-item {% if loop.index0 < 3 %}podium{% endif %} {% if loop.index0 == 0 %}first-place{% endif %}" style="--delay: {{ loop.index0 * 0.05 }}s;">
+                <div class="rank-badge">{{ member.rank }}</div>
+                
+                <div class="member-info">
+    <a href="{{ member.discord_url }}" target="_blank" rel="noopener" class="leader-avatar-link">
+        <img src="{{ url_for('static', filename='images/' + member.avatar) }}" 
+             alt="{{ member.name }}" 
+             class="leader-avatar">
+    </a>
+    <div>
+        <div class="leader-name">{{ member.name }}</div>
+        <div class="leader-level">{{ member.level }}</div>
+    </div>
+</div>
+                
+                <div class="points-info">
+                    <div class="total-points">{{ "{:,}".format(member.points) }} <span>pts</span></div>
+                    <div class="daily-gain">+{{ member.daily }} today</div>
+                </div>
+                
+                <div class="leader-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: {{ (member.points/12500)*100 }}%;"></div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Our Story - ETERNAL{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="story-hero">
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+        <span>Scroll Down</span>
+    </div>
+</section>
+
+<!-- Story Grid - SCROLLABLE -->
+<section class="story-grid section">
+    <div class="container">
+        <div class="section-title">Our Journey</div>
+        <div class="story-grid-container">
+            {% for story in stories %}
+            <div class="story-item" style="--delay: {{ loop.index0 * 0.1 }}s;">
+                <div class="story-image-wrapper">
+                    <img src="{{ url_for('static', filename='images/' + story.image) }}" 
+                         alt="{{ story.title }}" 
+                         loading="lazy">
+                    <div class="story-overlay">
+                        <h3>{{ story.title }}</h3>
+                        <p>{{ story.date }}</p>
+                    </div>
+                </div>
+                <div class="story-text">
+                    <h4>{{ story.title }}</h4>
+                    <p>{{ story.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Background -->
+<div class="story-timeline-bg"></div>
+{% endblock %}

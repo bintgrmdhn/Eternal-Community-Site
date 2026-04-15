@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ETERNAL Hero Style -->
+<section class="hero-eternal">
+    <div class="hero-particles"></div>
+    <div class="hero-bg-infinity"></div>
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-infinity"></i>
+            OFFICIAL COMMUNITY
+        </div>
+        <h1 class="hero-title">
+            <span class="title-main">ETERNAL</span>
+            <span class="title-subtitle">Komunitas Abadi</span>
+        </h1>
+        <p class="hero-description">
+            Bersatu kita <strong>KEKAL</strong>, berbagi ilmu kita <strong>ABADI</strong>. 
+            Join 5K+ member yang tumbuh bersama ETERNAL.
+        </p>
+        <div class="hero-cta">
+            <a href="#join" class="btn-eternal-primary">
+                <i class="fas fa-rocket"></i> Mulai Perjalanan
+            </a>
+        </div>
+        <div class="hero-metrics">
+            <div class="metric">
+                <span class="metric-number" data-target="5234">0</span>
+                <span>Active Members</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number" data-target="15420">0</span>
+                <span>Total Points</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number" data-target="128">0</span>
+                <span>Events</span>
+            </div>
+            <div class="metric">
+                <span class="metric-number" data-target="98">0</span>
+                <span>% Growth</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-prompt">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+    </div>
+</section>
+
+<!-- Features Eternal -->
+<section id="features" class="features-eternal">
+    <div class="features-bg"></div>
+    <div class="features-overlay"></div>
+    <div class="container">
+        <div class="section-intro">
+            <h2 class="section-h2">Kenapa <span class="accent">ETERNAL</span>?</h2>
+            <p class="section-p">Fitur premium yang bikin komunitas kita beda kelas</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="feature-icon">👥</div>
+                <h3>Komunitas Solid</h3>
+                <p>5K+ member aktif 24/7 saling support. Dari pemula sampai expert.</p>
+                <div class="feature-link">Lihat Members →</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🏆</div>
+                <h3>Leaderboard</h3>
+                <p>Naik rank, dapat achievement, unlock reward eksklusif VIP.</p>
+                <div class="feature-link">Top 20 →</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎁</div>
+                <h3>Rewards System</h3>
+                <p>Tukar points → merchandise, voucher, merchandise limited edition.</p>
+                <div class="feature-link">Claim Rewards →</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Eternal Stats -->
+<section class="stats-eternal">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-highlight">
+                <div class="stat-emoji">👑</div>
+                <h3>#1 Komunitas Indonesia</h3>
+                <p>Terbesar, teraktif, dan paling solid se- Indonesia</p>
+                <a href="{{ url_for('members') }}" class="btn-eternal-outline">Lihat Semua</a>
+            </div>
+            <div class="stats-cards">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="5234">0</div>
+                    <div>Active Members</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="15420">0</div>
+                    <div>Total Points</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="128">0</div>
+                    <div>Events</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div>% Growth</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Eternal -->
+<section class="cta-eternal">
+    <div class="container">
+        <div class="cta-wrapper">
+            <h2>Jadi bagian dari <span class="accent">keabadian</span></h2>
+            <p>5K+ member sudah join. Kamu kapan?</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('members') }}" class="btn-eternal-primary btn-xl">
+                    <i class="fas fa-infinity"></i> Join ETERNAL
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

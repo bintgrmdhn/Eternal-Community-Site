@@ -1,0 +1,76 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ETERNAL - Realm Community{% endblock %}</title>
+    
+    <!-- FAVICON ETERNAL -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
+    
+    <!-- Fonts & CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="{{ url_for('index') }}" class="nav-logo">
+            <img src="{{ url_for('static', filename='images/logo-eternal.png') }}" alt="ETERNAL" class="logo-img">
+        </a>
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('story') }}" class="{% if request.endpoint == 'story' %}active{% endif %}">Story</a></li>
+                <li><a href="{{ url_for('members') }}" class="{% if request.endpoint == 'members' %}active{% endif %}">Members</a></li>
+                <li><a href="{{ url_for('top_members') }}" class="{% if request.endpoint == 'top_members' %}active{% endif %}">Leaderboard</a></li>
+                <li><a href="{{ url_for('gallery') }}" class="{% if request.endpoint == 'gallery' %}active{% endif %}">Gallery</a></li>
+                <li><a href="{{ url_for('support') }}" class="{% if request.endpoint == 'support' %}active{% endif %}">Support</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-infinity"></i>
+                    <span>ETERNAL</span>
+                </div>
+                <p>Komunitas Abadi. Bersama kita menuju keabadian.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('story') }}">Story</a></li>
+                    <li><a href="{{ url_for('members') }}">Members</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> eternal@community.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Indonesia</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ETERNAL Community. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
